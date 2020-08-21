@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   def new; end
 
   def create
-    # params.permit!
-    # @user = User.new(params.slice(:username, :email, :password))
-    @user = User.new(user_params)
+    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    # @user = User.new(user_params)
 
     if @user.save
       redirect_to new_user_path
