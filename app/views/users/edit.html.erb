@@ -1,12 +1,11 @@
-<% unless @user.valid? %>
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= form_for @user do |form| %>
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= form.label :username, 'Username:' %>
   <%= form.text_field :username, placeholder: 'jsmith' %>
   <br>
