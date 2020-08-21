@@ -1,4 +1,4 @@
-<% unless @performed_render && @user.valid? %>
+<% unless @user.valid? %>
   <ul>
     <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
